@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        div{
+            height:24px;
+            width:300px;
+            /*float: left;*/
+            border:2px solid #000;
+            overflow: hidden;
+            margin:0 auto;
+        }
+        li{
+            height:24px;
+            line-height: 24px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ol id="con1">
+        <li>1.学会html5绝对的屌丝逆袭</li>
+        <li>2.tab页面切换效果</li>
+        <li>3.分页页码制作</li>
+        <li>4.导航栏菜单的制作</li>
+        <li>5.HTML+CSS基础课程(系列)</li>
+        <li>6.圆角水晶按钮制作(案例)</li>
+        <li>7.无缝滚动原理</li>
+        <li>8.文字滚动效果(案例)</li>
+        <li>9.tab页面切换效果</li>
+        <li>10.tab页面切换效果</li>
+    </ol>
+    <ol id="con2"></ol>
+</div>
+</body>
+</html>
+<script>
+    var area=document.getElementById('box');
+    var con1=document.getElementById('con1');
+    var con2=document.getElementById('con2');
+    var liheught=24;
+    var time=null;
+    con2.innerHTML=con1.innerHTML;
+//    无缝滚动
+//    function scrollUp() {
+//        if(area.scrollTop >= con1.offsetHeight) {
+//            area.scrollTop = 0;
+//        }else {
+//            area.scrollTop++;
+//        }
+//    }
+//    area.onmousemove=function () {
+//        clearInterval(scroll);
+//    }
+//    area.onmouseout=function () {
+//        scroll=setInterval(scrollUp,100);
+//    }
+//    var scroll=setInterval(scrollUp,100);
+//var liheight=24;
+//   有缝滚动
+    function startMove(){
+        area.scrollTop++;
+         time=setInterval(scrollup,50)
+    }
+    function scrollup() {
+        if(area.scrollTop % 24 ==0){
+            clearInterval(time);
+            setTimeout(startMove,2000);
+        }else {
+            area.scrollTop++;
+            if(area.scrollTop >= con1.offsetHeight) {
+            area.scrollTop = 0;
+            }
+        }
+    }
+    time=setInterval(scrollup,50);
+</script>
