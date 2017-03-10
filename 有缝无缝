@@ -64,6 +64,10 @@
 //    var scroll=setInterval(scrollUp,100);
 //var liheight=24;
 //   有缝滚动
+
+
+
+
     function startMove(){
         area.scrollTop++;
          time=setInterval(scrollup,50)
